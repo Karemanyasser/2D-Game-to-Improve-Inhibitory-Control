@@ -10,6 +10,7 @@ public class DOB_Dropdown : MonoBehaviour
     [SerializeField] public TMP_Dropdown monthDropdown; // month dropdown to populate
     [SerializeField] public TMP_Dropdown yearDropdown; // year dropdown to populate
     [SerializeField] public TMP_Dropdown yoeDropdown; // years of education dropdown to populate
+     [SerializeField] public TMP_Dropdown genderDropdown; // gender dropdown to populate
     
     void Start()
     {
@@ -37,6 +38,10 @@ public class DOB_Dropdown : MonoBehaviour
         monthDropdown.ClearOptions(); //clear the options
         monthDropdown.AddOptions(months); // add the months to dropdown 
 
+        List<string> genders = new List<string> {"woman", "man", "other"};  
+        genderDropdown.ClearOptions(); //clear the options
+        genderDropdown.AddOptions(genders); // add the genders to dropdown 
+
 
         List<string> years = new List<string>(); // create a list of years
         int currentYear = System.DateTime.Now.Year;
@@ -54,5 +59,8 @@ public class DOB_Dropdown : MonoBehaviour
                 }
                 yoeDropdown.ClearOptions(); //clear the options
                 yoeDropdown.AddOptions(yoe); // add to the yoe dropdown
+
+        
+        
             } 
 }
