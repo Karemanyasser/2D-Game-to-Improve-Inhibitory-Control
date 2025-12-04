@@ -1,17 +1,19 @@
 using UnityEngine;
+using System.IO;
 
 public class Object : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    
 
-    // Static counter shared across all spawned objects
+    // static counter shared across all falling objects
     private static int objectCount = 0;
 
     void Start()
     {
-        objectCount++; // Increase count whenever a new object is created
+        objectCount++; // increase count whenever a new object is created
 
-        // If this is the 10th object
+        // if this is the 10th object
         if (objectCount % 10 == 0)
         {
             spriteRenderer.color = Color.blue;
@@ -21,4 +23,5 @@ public class Object : MonoBehaviour
             spriteRenderer.color = Color.red;
         }
     }
+   
 }

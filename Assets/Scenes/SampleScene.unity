@@ -1956,7 +1956,6 @@ GameObject:
   - component: {fileID: 484234346}
   - component: {fileID: 484234345}
   - component: {fileID: 484234349}
-  - component: {fileID: 484234350}
   - component: {fileID: 484234351}
   m_Layer: 5
   m_Name: Canvas
@@ -2079,19 +2078,6 @@ MonoBehaviour:
   yearDropdown: {fileID: 881745565}
   yoeDropdown: {fileID: 996513121}
   genderDropdown: {fileID: 285534939}
---- !u!114 &484234350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484234344}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cb2a1ca1c67454b88f61a14047e794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  next_btn: {fileID: 700928394}
 --- !u!114 &484234351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,7 +2093,12 @@ MonoBehaviour:
   fnameInputField: {fileID: 848460480}
   lnameInputField: {fileID: 1053515224}
   emailInputField: {fileID: 2133596890}
-  next_btn: {fileID: 0}
+  dayDropdown: {fileID: 431012954}
+  monthDropdown: {fileID: 1750447730}
+  yearDropdown: {fileID: 881745565}
+  yoeDropdown: {fileID: 996513121}
+  genderDropdown: {fileID: 285534939}
+  next_btn: {fileID: 700928394}
 --- !u!1 &485485213
 GameObject:
   m_ObjectHideFlags: 0

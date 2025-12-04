@@ -16,11 +16,11 @@ public class InputHandler : MonoBehaviour
     [SerializeField] public TMP_Dropdown yoeDropdown; 
     [SerializeField] public TMP_Dropdown genderDropdown;
 
-    public Participant CurrentParticipant { get; private set; } = new Participant();
+    public static Participant CurrentParticipant = new Participant();
     public GameObject next_btn;
-    // pattern to verify email
+    // pattern to verify email from geeks for geeks
     string emailPattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
-//  pattern for letters only
+//  pattern for letters only from geeks for geeks
     string namePattern = @"^[a-zA-Z]+$"; 
       public void Validate()
     {
@@ -30,6 +30,7 @@ public class InputHandler : MonoBehaviour
         if(emailStatus && fnameStatus && lnameStatus)
         {
             AddParticipant();
+            SaveData();
             SceneManager.LoadScene("Second_Scene");
         }
     }      
@@ -53,7 +54,6 @@ public class InputHandler : MonoBehaviour
         CurrentParticipant.fName = fnameInputField.text;
         CurrentParticipant.lName=lnameInputField.text;
         CurrentParticipant.Email=emailInputField.text;
-        // int index = genderDropdown.value;
         CurrentParticipant.Gender=DropText(genderDropdown);
         CurrentParticipant.Day=ParseDropdown(dayDropdown);
         CurrentParticipant.Month=DropText(monthDropdown);
@@ -71,13 +71,16 @@ public class InputHandler : MonoBehaviour
     public int ParseDropdown (TMP_Dropdown Dropdown)
     {
         string selectedText = DropText(Dropdown);
-        // int index = Dropdown.value; // get index of selected option
-        // string text = Dropdown.options[index].text; // get text of that option
         // Convert to integers
         int intOutput;
         int.TryParse(selectedText, out intOutput);
         return intOutput;
 
     }
+    public void SaveData()
+{
+    string json = JsonUtility.ToJson(CurrentParticipant);
+    File.WriteAllText("D:/carrie works/vr work/2d_IC/Data.json", json);
+}
     
 }
